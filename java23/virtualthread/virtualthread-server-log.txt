@@ -1,0 +1,128 @@
+80030
+2024-12-23T14:12:34.884717Z
+23.0.1+8-FR
+// ps -ef | grep IoEchoThreadPoolServer
+jcmd pid  Thread.dump_to_file  -overwrite  server.txt
+#1 "main"
+      java.base/sun.nio.ch.Net.accept(Native Method)
+      java.base/sun.nio.ch.NioSocketImpl.accept(NioSocketImpl.java:748)
+      java.base/java.net.ServerSocket.implAccept(ServerSocket.java:694)
+      java.base/java.net.ServerSocket.platformImplAccept(ServerSocket.java:659)
+      java.base/java.net.ServerSocket.implAccept(ServerSocket.java:635)
+      java.base/java.net.ServerSocket.implAccept(ServerSocket.java:581)
+      java.base/java.net.ServerSocket.accept(ServerSocket.java:540)
+      IoEchoThreadPoolServer.main(IoEchoThreadPoolServer.java:23)
+
+#9 "Reference Handler"
+      java.base/java.lang.ref.Reference.waitForReferencePendingList(Native Method)
+      java.base/java.lang.ref.Reference.processPendingReferences(Reference.java:246)
+      java.base/java.lang.ref.Reference$ReferenceHandler.run(Reference.java:208)
+
+#10 "Finalizer"
+      java.base/java.lang.Object.wait0(Native Method)
+      java.base/java.lang.Object.wait(Object.java:378)
+      java.base/java.lang.Object.wait(Object.java:352)
+      java.base/java.lang.ref.NativeReferenceQueue.await(NativeReferenceQueue.java:48)
+      java.base/java.lang.ref.ReferenceQueue.remove0(ReferenceQueue.java:166)
+      java.base/java.lang.ref.NativeReferenceQueue.remove(NativeReferenceQueue.java:89)
+      java.base/java.lang.ref.Finalizer$FinalizerThread.run(Finalizer.java:173)
+
+#11 "Signal Dispatcher"
+
+#26 "Common-Cleaner"
+      java.base/jdk.internal.misc.Unsafe.park(Native Method)
+      java.base/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:269)
+      java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1852)
+      java.base/java.lang.ref.ReferenceQueue.await(ReferenceQueue.java:79)
+      java.base/java.lang.ref.ReferenceQueue.remove0(ReferenceQueue.java:151)
+      java.base/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:229)
+      java.base/jdk.internal.ref.CleanerImpl.run(CleanerImpl.java:140)
+      java.base/java.lang.Thread.run(Thread.java:1575)
+      java.base/jdk.internal.misc.InnocuousThread.run(InnocuousThread.java:186)
+
+#27 "Monitor Ctrl-Break"
+      java.base/sun.nio.ch.SocketDispatcher.read0(Native Method)
+      java.base/sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:47)
+      java.base/sun.nio.ch.NioSocketImpl.tryRead(NioSocketImpl.java:256)
+      java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:307)
+      java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:346)
+      java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:796)
+      java.base/java.net.Socket$SocketInputStream.implRead(Socket.java:1116)
+      java.base/java.net.Socket$SocketInputStream.read(Socket.java:1103)
+      java.base/sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:350)
+      java.base/sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:393)
+      java.base/sun.nio.cs.StreamDecoder.lockedRead(StreamDecoder.java:217)
+      java.base/sun.nio.cs.StreamDecoder.read(StreamDecoder.java:171)
+      java.base/java.io.InputStreamReader.read(InputStreamReader.java:190)
+      java.base/java.io.BufferedReader.fill(BufferedReader.java:160)
+      java.base/java.io.BufferedReader.implReadLine(BufferedReader.java:370)
+      java.base/java.io.BufferedReader.readLine(BufferedReader.java:347)
+      java.base/java.io.BufferedReader.readLine(BufferedReader.java:436)
+      com.intellij.rt.execution.application.AppMainV2$1.run(AppMainV2.java:55)
+
+#28 "Notification Thread"
+
+#29 "Attach Listener"
+      java.base/java.lang.Thread.getStackTrace(Thread.java:2389)
+      java.base/jdk.internal.vm.ThreadDumper.dumpThread(ThreadDumper.java:165)
+      java.base/jdk.internal.vm.ThreadDumper.lambda$dumpThreads$0(ThreadDumper.java:158)
+      java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:197)
+      java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1024)
+      java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:570)
+      java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:560)
+      java.base/java.util.stream.StreamSpliterators$WrappingSpliterator.forEachRemaining(StreamSpliterators.java:315)
+      java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734)
+      java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:807)
+      java.base/jdk.internal.vm.ThreadDumper.dumpThreads(ThreadDumper.java:158)
+      java.base/jdk.internal.vm.ThreadDumper.dumpThreads(ThreadDumper.java:154)
+      java.base/jdk.internal.vm.ThreadDumper.dumpThreadsToFile(ThreadDumper.java:119)
+      java.base/jdk.internal.vm.ThreadDumper.dumpThreads(ThreadDumper.java:68)
+
+#33 "Read-Poller"
+      java.base/sun.nio.ch.KQueue.poll(Native Method)
+      java.base/sun.nio.ch.KQueuePoller.poll(KQueuePoller.java:68)
+      java.base/sun.nio.ch.Poller.pollerLoop(Poller.java:223)
+      java.base/java.lang.Thread.run(Thread.java:1575)
+      java.base/jdk.internal.misc.InnocuousThread.run(InnocuousThread.java:186)
+
+#34 "Write-Poller"
+      java.base/sun.nio.ch.KQueue.poll(Native Method)
+      java.base/sun.nio.ch.KQueuePoller.poll(KQueuePoller.java:68)
+      java.base/sun.nio.ch.Poller.pollerLoop(Poller.java:223)
+      java.base/java.lang.Thread.run(Thread.java:1575)
+      java.base/jdk.internal.misc.InnocuousThread.run(InnocuousThread.java:186)
+
+#30 "" virtual
+      java.base/java.lang.VirtualThread.park(VirtualThread.java:601)
+      java.base/java.lang.System$2.parkVirtualThread(System.java:2735)
+      java.base/jdk.internal.misc.VirtualThreads.park(VirtualThreads.java:54)
+      java.base/java.util.concurrent.locks.LockSupport.park(LockSupport.java:369)
+      java.base/sun.nio.ch.Poller.poll(Poller.java:178)
+      java.base/sun.nio.ch.Poller.poll(Poller.java:137)
+      java.base/sun.nio.ch.NioSocketImpl.park(NioSocketImpl.java:175)
+      java.base/sun.nio.ch.NioSocketImpl.park(NioSocketImpl.java:201)
+      java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:309)
+      java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:346)
+      java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:796)
+      java.base/java.net.Socket$SocketInputStream.implRead(Socket.java:1116)
+      java.base/java.net.Socket$SocketInputStream.read(Socket.java:1103)
+      java.base/java.io.InputStream.read(InputStream.java:220)
+      IoEchoThreadPoolServer$Worker.run(IoEchoThreadPoolServer.java:55)
+      java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+      java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+      java.base/java.lang.VirtualThread.run(VirtualThread.java:329)
+
+#31 "ForkJoinPool-1-worker-1"
+      java.base/jdk.internal.misc.Unsafe.park(Native Method)
+      java.base/java.util.concurrent.ForkJoinPool.awaitWork(ForkJoinPool.java:2137)
+      java.base/java.util.concurrent.ForkJoinPool.deactivate(ForkJoinPool.java:2101)
+      java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:2045)
+      java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:189)
+
+#32 "ForkJoinPool-1-worker-2"
+      java.base/jdk.internal.misc.Unsafe.park(Native Method)
+      java.base/java.util.concurrent.ForkJoinPool.awaitWork(ForkJoinPool.java:2137)
+      java.base/java.util.concurrent.ForkJoinPool.deactivate(ForkJoinPool.java:2101)
+      java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:2045)
+      java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:189)
+
